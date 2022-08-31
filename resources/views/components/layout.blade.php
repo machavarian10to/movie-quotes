@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
 </head>
-<body>
-    <h1 class="text-3xl underline bg-amber-50 text-emerald-500">
-        Hello World!
-    </h1>
+<body class="bg-gradient-to-r from-gray-600 to-gray-800">
+    {{ $slot }}
 </body>
 </html>
