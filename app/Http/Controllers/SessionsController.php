@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePostRequest;
+
 class SessionsController extends Controller
 {
 	public function create()
@@ -9,14 +11,11 @@ class SessionsController extends Controller
 		return view('sessions.create');
 	}
 
-	public function store()
+	public function store(StorePostRequest $request)
 	{
-		$attributes = request()->validate([
-			'email'    => 'required|email',
-			'password' => 'required',
-		]);
+		$validated = $request->validated();
 
-		if (!auth()->attempt($attributes))
+		if (!auth()->attempt($validated))
 		{
 			return back()->withErrors(['email'    => 'Correct your email']);
 		}

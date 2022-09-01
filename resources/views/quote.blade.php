@@ -3,7 +3,7 @@
         @auth
             <span class="text-sm text-white uppercase m-3">Welcome, {{ auth()->user()->username }}</span>
 
-            <form method="POST" action="/logout">
+            <form method="POST" action="{{ route('logout.destroy') }}">
                 @csrf
 
                 <button type="submit" class="px-10 py-2 bg-blue-500 text-white rounded-md
@@ -11,7 +11,7 @@
                 >Log out</button>
             </form>
         @else
-            <a href="/login" class=" px-10 py-2 bg-blue-500 text-white rounded-md
+            <a href="{{ route('login.create') }}" class=" px-10 py-2 bg-blue-500 text-white rounded-md
                 hover:bg-blue-500 hover:drop-shadow-md duration-300 ease-in">
                 Log In
             </a>

@@ -1,6 +1,6 @@
 <x-layout>
     <div class="w-screen h-screen flex justify-center items-center">
-        <form method="POST" action="/login" class="p-10 bg-white rounded-xl drop-shadow-lg space-y-5" >
+        <form method="POST" action="{{ route('login.store') }}" class="p-10 bg-white rounded-xl drop-shadow-lg space-y-5" >
             @csrf
             <h1 class="text-center text-3xl">Log In</h1>
 

@@ -1,14 +1,14 @@
 <?php
 
 use App\Http\Controllers\MovieController;
-use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\SessionsController;
+use App\Models\Quote;
+use App\Models\Movie;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [QuoteController::class, 'index'])->name('home');
+Route::view('/', 'quote', ['quote' => Quote::first()])->name('home');
 
-Route::get('/movies/{movie:slug}', [MovieController::class, 'show'])
-	->name('movies.show');
+Route::get('/movies/{movie:slug}', [MovieController::class, 'show'])->name('movies.show');
 
 Route::get('/login', [SessionsController::class, 'create'])
 	->middleware('guest')
