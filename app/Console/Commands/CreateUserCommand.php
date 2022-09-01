@@ -52,7 +52,7 @@ class CreateUserCommand extends Command
 		$input = [
 			'username'                  => $username,
 			'email'                     => $email,
-			'password'                  => $password,
+			'password'                  => bcrypt($password),
 		];
 
 		try
