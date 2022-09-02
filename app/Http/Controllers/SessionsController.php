@@ -20,13 +20,13 @@ class SessionsController extends Controller
 			return back()->withErrors(['email'    => 'Correct your email']);
 		}
 		session()->regenerate();
-		return redirect('/')->with('success', 'You are logged in');
+		return redirect('/');
 	}
 
 	public function destroy()
 	{
 		auth()->logout();
 
-		return redirect('/')->with('success', 'You are logged out!');
+		return redirect('/');
 	}
 }
