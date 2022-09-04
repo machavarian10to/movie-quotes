@@ -3,15 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePostRequest;
+use Illuminate\Http\RedirectResponse;
 
 class SessionsController extends Controller
 {
-	public function create()
-	{
-		return view('sessions.create');
-	}
-
-	public function store(StorePostRequest $request)
+	public function login(StorePostRequest $request): RedirectResponse
 	{
 		$validated = $request->validated();
 
@@ -20,13 +16,13 @@ class SessionsController extends Controller
 			return back()->withErrors(['email'    => 'Correct your email']);
 		}
 		session()->regenerate();
-		return redirect('/')->with('success', 'You are logged in');
+		return redirect('/');
 	}
 
-	public function destroy()
+	public function logout(): RedirectResponse
 	{
 		auth()->logout();
 
-		return redirect('/')->with('success', 'You are logged out!');
+		return redirect('/');
 	}
 }

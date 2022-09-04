@@ -1,8 +1,9 @@
 <x-layout>
     <div class="flex justify-end m-4">
         @auth
-            <span class="text-sm text-white uppercase m-3">Welcome, {{ auth()->user()->username }}</span>
+            <span class="text-md text-white uppercase m-3">Welcome, {{ auth()->user()->username }}</span>
 
+            <a class="text-md text-blue-300 uppercase m-3" href="{{ route('admin.quotes_show') }}">Dashboard</a>
             <form method="POST" action="{{ route('logout.destroy') }}">
                 @csrf
 
@@ -21,16 +22,14 @@
     <x-language-buttons />
 
     <div class="flex justify-center items-center">
-        <div class="w-6/12 h-90 mt-20 text-white text-center text-3xl">
-            <div class="flex justify-center">
-                <img src="https://www.infopostalioni.com/wp-content/uploads/2019/05/%E1%83%AF%E1%83%90%E1%83%A0%E1%83%98%E1%83%A1%E1%83%99%E1%83%90%E1%83%AA%E1%83%98%E1%83%A1-%E1%83%9B%E1%83%90%E1%83%9B%E1%83%90.jpg"
-                     class="w-8/12 h-65"
-                />
+        <div class="text-white text-center font-sansation text-5xl flex flex-col items-center">
+            <div class="flex justify-center w-[700px] h-[386px] mt-12">
+                <img src="{{ asset('storage/' . $quote->thumbnail) }}" class="w-full h-full"/>
             </div>
 
-            <h4 class="my-10">{{ $quote->title }}</h4>
+            <h4 class="my-[65px]">{{ $quote->title }}</h4>
             <a href="/movies/{{ $quote->movie->slug }}">
-                <h3 class="underline">{{ $quote->movie_name }}</h3>
+                <h3 class="underline">{{ $quote->movie->name }}</h3>
             </a>
         </div>
     </div>
