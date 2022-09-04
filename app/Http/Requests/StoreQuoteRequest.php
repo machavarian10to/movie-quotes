@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 class StoreQuoteRequest extends FormRequest
 {
@@ -15,9 +14,10 @@ class StoreQuoteRequest extends FormRequest
 	public function rules()
 	{
 		return [
-			'title'     => 'required',
-			'movie_id'  => ['required', Rule::exists('movies', 'id')],
-			'thumbnail' => 'required|image',
+			'title_en'     => 'required',
+			'title_ka'     => 'required',
+			'movie_id'     => 'required|exists:movies,id',
+			'thumbnail'    => 'required|image',
 		];
 	}
 }

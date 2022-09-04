@@ -9,7 +9,7 @@ use Illuminate\View\View;
 
 class MovieController extends Controller
 {
-	public function index(Movie $movie)
+	public function show(Movie $movie)
 	{
 		return view('quotes', [
 			'movie' => $movie,
@@ -23,9 +23,7 @@ class MovieController extends Controller
 		return redirect('/');
 	}
 
-
-
-	public function show(): View
+	public function index(): View
 	{
 		return view('movies.show', [
 			'movies' => Movie::all(),

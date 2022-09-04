@@ -14,8 +14,9 @@ class StoreMovieRequest extends FormRequest
 	public function rules()
 	{
 		return [
-			'name'     => 'required',
-			'slug'     => 'required',
+			'name_en'     => 'required',
+			'name_ka'     => 'required',
+			'slug'        => 'required',
 		];
 	}
 }
