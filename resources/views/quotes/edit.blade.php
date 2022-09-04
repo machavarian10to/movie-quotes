@@ -23,11 +23,8 @@
                 <form action="{{ route('admin.quotes_update', $quote->id) }}" method="POST" enctype="multipart/form-data" class="space-y-6" >
                     @csrf
                     @method('PATCH')
-                    <x-input name="title_en" title="Title(english)" value="{{ old('title_en', $quote->title_en)}}" />
-                    <x-error type="title_en" />
-
-                    <x-input name="title_ka" title="Title(georgian)" value="{{ old('title_ka', $quote->title_ka)}}"/>
-                    <x-error type="title_ka" />
+                    <x-input name="title" title="Title" value="{{ old('title', $quote->title)}}" />
+                    <x-error type="title" />
 
                     <div class="">
                         <label for="thumbnail"
@@ -47,7 +44,7 @@
                         <select name="movie_id" id="movie_id">
                             @foreach(\App\Models\Movie::all() as $movie)
                                 <option value="{{ $movie->id }}"
-                                {{ old('movie_id', $quote->movie_id) == $movie->id ? 'selected' : ''}}>{{ ucwords($movie->name_en) }}</option>
+                                {{ old('movie_id', $quote->movie_id) === $movie->id ? 'selected' : ''}}>{{ ucwords($movie->name) }}</option>
                             @endforeach
                         </select>
                     </div>

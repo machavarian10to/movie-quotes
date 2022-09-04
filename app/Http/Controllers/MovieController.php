@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreMovieRequest;
 use App\Models\Movie;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
 class MovieController extends Controller
 {
@@ -14,39 +16,36 @@ class MovieController extends Controller
 		]);
 	}
 
-	public function create()
-	{
-		return view('movies.create');
-	}
-
-	public function store(StoreMovieRequest $request)
+	public function store(StoreMovieRequest $request): RedirectResponse
 	{
 		Movie::create($request->validated());
 
 		return redirect('/');
 	}
 
-	public function show()
+
+
+	public function show(): View
 	{
 		return view('movies.show', [
 			'movies' => Movie::all(),
 		]);
 	}
 
-	public function edit(Movie $movie)
+	public function edit(Movie $movie): View
 	{
 		return view('movies.edit', [
 			'movie' => $movie,
 		]);
 	}
 
-	public function update(StoreMovieRequest $request, Movie $movie)
+	public function update(StoreMovieRequest $request, Movie $movie): RedirectResponse
 	{
 		$movie->update($request->validated());
 		return back()->with('success', 'Movie updated');
 	}
 
-	public function destroy(Movie $movie)
+	public function destroy(Movie $movie): RedirectResponse
 	{
 		$movie->delete();
 

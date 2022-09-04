@@ -30,7 +30,7 @@
                                         <div class="flex items-center">
                                             <div class="font-medium text-gray-900">
                                                 <p>
-                                                    {{ $quote->title_en }}
+                                                    {{ $quote->title }}
                                                 </p>
                                             </div>
                                         </div>

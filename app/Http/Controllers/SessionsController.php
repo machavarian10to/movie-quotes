@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePostRequest;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
 class SessionsController extends Controller
 {
-	public function create()
+	public function create(): View
 	{
 		return view('sessions.create');
 	}
 
-	public function store(StorePostRequest $request)
+	public function store(StorePostRequest $request): RedirectResponse
 	{
 		$validated = $request->validated();
 
@@ -23,7 +25,7 @@ class SessionsController extends Controller
 		return redirect('/');
 	}
 
-	public function destroy()
+	public function destroy(): RedirectResponse
 	{
 		auth()->logout();
 

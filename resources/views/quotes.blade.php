@@ -4,7 +4,7 @@
 
     <div class="flex justify-center items-center">
         <div>
-            <h1 class="text-white text-5xl my-20 ">{{ $movie->name_en }}</h1>
+            <h1 class="text-white text-5xl my-20 ">{{ $movie->name }}</h1>
 
         @foreach($movie->quotes as $quote)
                 <div class="w-[748px] h-[533px] bg-white rounded-lg mb-16">
@@ -13,7 +13,7 @@
                     </div>
                     <div class="py-8 px-4 mb-10">
                         <p class="mb-3 font-normal text-4xl"
-                        >{{ $quote->title_en }}</p>
+                        >{{ $quote->title }}</p>
                     </div>
                 </div>
             @endforeach

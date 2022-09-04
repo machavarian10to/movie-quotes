@@ -24,11 +24,8 @@
                     @csrf
                     @method('PATCH')
 
-                    <x-input name="name_en" title="Movie name(english)" value="{{ old('name_en', $movie->name_en) }}"/>
-                    <x-error type="name_en" />
-
-                    <x-input name="name_ka" title="Movie name(georgian)" value="{{ old('name_ka', $movie->name_ka) }}"/>
-                    <x-error type="name_ka" />
+                    <x-input name="name" title="Movie name" value="{{ old('name', $movie->name) }}"/>
+                    <x-error type="name" />
 
                     <x-input name="slug" title="Slug" value="{{ old('slug', $movie->slug) }}"/>
                     <x-error type="slug" />

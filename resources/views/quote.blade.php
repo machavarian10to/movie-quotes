@@ -27,9 +27,9 @@
                 <img src="{{ asset('storage/' . $quote->thumbnail) }}" class="w-full h-full"/>
             </div>
 
-            <h4 class="my-[65px]">{{ $quote->title_en }}</h4>
+            <h4 class="my-[65px]">{{ $quote->title }}</h4>
             <a href="/movies/{{ $quote->movie->slug }}">
-                <h3 class="underline">{{ $quote->movie->name_en }}</h3>
+                <h3 class="underline">{{ $quote->movie->name }}</h3>
             </a>
         </div>
     </div>

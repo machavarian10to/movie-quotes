@@ -3,26 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreQuoteRequest;
+use App\Models\Movie;
 use App\Models\Quote;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\View\View;
 
 class QuoteController extends Controller
 {
-	public function index()
+	public function index(): View
 	{
-		$quote = Quote::all()->random(1)->first();
-
 		return view('quote', [
-			'quote' => $quote,
+			'quote' => Quote::all()->random(1)->first(),
 		]);
 	}
 
-	public function create()
-	{
-		return view('quotes.create');
-	}
-
-	public function store(StoreQuoteRequest $request)
+	public function store(StoreQuoteRequest $request): RedirectResponse
 	{
 		$attributes = $request->validated();
 		$attributes['thumbnail'] = Storage::putFile('thumbnails', $request->file('thumbnail'));
@@ -31,21 +27,28 @@ class QuoteController extends Controller
 		return redirect('/');
 	}
 
-	public function show()
+	public function show(): View
 	{
 		return view('quotes.show', [
 			'quotes' => Quote::all(),
 		]);
 	}
 
-	public function edit(Quote $quote)
+	public function edit(Quote $quote): View
 	{
 		return view('quotes.edit', [
 			'quote' => $quote,
 		]);
 	}
 
-	public function update(StoreQuoteRequest $request, Quote $quote)
+	public function create(): View
+	{
+		return view('quotes.create', [
+			'movies' => Movie::all(),
+		]);
+	}
+
+	public function update(StoreQuoteRequest $request, Quote $quote): RedirectResponse
 	{
 		if (isset($request->thumbnail))
 		{
@@ -57,7 +60,7 @@ class QuoteController extends Controller
 		return redirect('/');
 	}
 
-	public function destroy(Quote $quote)
+	public function destroy(Quote $quote): RedirectResponse
 	{
 		$quote->delete();
 

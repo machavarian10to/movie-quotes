@@ -43,8 +43,8 @@
                                class="block text-sm font-medium text-gray-700"
                         >Movie</label>
                         <select name="movie_id" id="movie_id">
-                            @foreach(\App\Models\Movie::all() as $movie)
-                                <option value="{{ $movie->id }}">{{ ucwords($movie->name_en) }}</option>
+                            @foreach($movies as $movie)
+                                <option value="{{ $movie->id }}">{{ ucwords($movie->name) }}</option>
                             @endforeach
                         </select>
                     </div>
