@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\SessionsController;
@@ -40,3 +41,5 @@ Route::view('/admin/movies/create', 'movies.create')
 Route::view('/login', 'sessions.create')
 	->name('login.create')
 	->middleware('guest');
+
+Route::get('/change-locale/{locale}', [LanguageController::class, 'change'])->name('locale.change');

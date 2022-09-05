@@ -1,18 +1,18 @@
 <x-layout>
     <div class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
-        <x-title name="All quotes" />
+        <x-title name="{{__('texts.all_quotes')}}" />
 
         <div class="">
             <aside class="w-48">
-                <h4 class="font-semibold mb-4 text-underline">Links</h4>
+                <h4 class="font-semibold mb-4 text-underline">{{__('texts.links')}}</h4>
                 <ul>
-                    <x-link name="All quotes" link="{{ route('admin.quotes_show') }}"/>
+                    <x-link name="{{__('texts.all_quotes')}}" link="{{ route('admin.quotes_show') }}"/>
 
-                    <x-link name="All movies" link="{{ route('admin.movies_show') }}"/>
+                    <x-link name="{{__('texts.all_movies')}}" link="{{ route('admin.movies_show') }}"/>
 
-                    <x-link name="New quote" link="{{ route('admin.quotes_create') }}"/>
+                    <x-link name="{{__('texts.new_quote')}}" link="{{ route('admin.quotes_create') }}"/>
 
-                    <x-link name="New movie" link="{{ route('admin.movies_create') }}" class="mt-3"/>
+                    <x-link name="{{__('texts.new_movie')}}" link="{{ route('admin.movies_create') }}" class="mt-3"/>
                 </ul>
             </aside>
         </div>
@@ -36,14 +36,14 @@
                                         </div>
                                     </td>
                                     <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                        <a href="{{ route('admin.quotes_edit', $quote->id) }}" class="text-blue-500 hover:text-blue-500">Edit</a>
+                                        <a href="{{ route('admin.quotes_edit', $quote->id) }}" class="text-blue-500 hover:text-blue-500">{{__('texts.edit')}}</a>
                                     </td>
                                     <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                         <form method="POST" action="{{ route('admin.quotes_destroy', $quote->id) }}">
                                             @csrf
                                             @method('DELETE')
 
-                                            <button class="text-xs text-gray-400">Delete</button>
+                                            <button class="text-xs text-gray-400">{{__('texts.delete')}}</button>
                                         </form>
                                     </td>
                                 </tr>

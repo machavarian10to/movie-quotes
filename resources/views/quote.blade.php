@@ -1,20 +1,20 @@
 <x-layout>
     <div class="flex justify-end m-4">
         @auth
-            <span class="text-md text-white uppercase m-3">Welcome, {{ auth()->user()->username }}</span>
+            <span class="text-xl text-white uppercase m-3">{{__('texts.welcome')}}, {{ auth()->user()->username }}</span>
 
-            <a class="text-md text-blue-300 uppercase m-3" href="{{ route('admin.quotes_show') }}">Dashboard</a>
+            <a class="text-xl text-blue-300 uppercase m-3" href="{{ route('admin.quotes_show') }}">{{__('texts.dashboard')}}</a>
             <form method="POST" action="{{ route('logout.destroy') }}">
                 @csrf
 
                 <button type="submit" class="px-10 py-2 bg-blue-500 text-white rounded-md
-                hover:bg-blue-500 hover:drop-shadow-md duration-300 ease-in"
-                >Log out</button>
+                hover:bg-blue-500 hover:drop-shadow-md duration-300 ease-in text-2xl"
+                >{{__('texts.logout')}}</button>
             </form>
         @else
             <a href="{{ route('login.create') }}" class=" px-10 py-2 bg-blue-500 text-white rounded-md
-                hover:bg-blue-500 hover:drop-shadow-md duration-300 ease-in">
-                Log In
+                hover:bg-blue-500 hover:drop-shadow-md duration-300 ease-in text-2xl">
+                {{__('texts.login')}}
             </a>
         @endauth
     </div>

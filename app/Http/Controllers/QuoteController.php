@@ -20,9 +20,12 @@ class QuoteController extends Controller
 
 	public function store(StoreQuoteRequest $request): RedirectResponse
 	{
-		$attributes = $request->validated();
-		$attributes['thumbnail'] = Storage::putFile('thumbnails', $request->file('thumbnail'));
-		Quote::create($attributes);
+		$quote = new Quote();
+		$quote->movie_id = $request->movie_id;
+		$quote->thumbnail = Storage::putFile('thumbnails', $request->file('thumbnail'));
+		$quote->setTranslation('title', 'en', $request->title_en);
+		$quote->setTranslation('title', 'ka', $request->title_ka);
+		$quote->save();
 
 		return redirect('/');
 	}
@@ -37,7 +40,8 @@ class QuoteController extends Controller
 	public function edit(Quote $quote): View
 	{
 		return view('quotes.edit', [
-			'quote' => $quote,
+			'quote'  => $quote,
+			'movies' => Movie::all(),
 		]);
 	}
 

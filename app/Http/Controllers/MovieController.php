@@ -18,7 +18,12 @@ class MovieController extends Controller
 
 	public function store(StoreMovieRequest $request): RedirectResponse
 	{
-		Movie::create($request->validated());
+		$movie = new Movie();
+		$movie->slug = $request->slug;
+		$movie->setTranslation('name', 'en', $request->name_en);
+		$movie->setTranslation('name', 'ka', $request->name_ka);
+		$movie->save();
+//		Movie::create($request->validated());
 
 		return redirect('/');
 	}
