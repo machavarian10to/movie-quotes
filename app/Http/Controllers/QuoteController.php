@@ -20,8 +20,7 @@ class QuoteController extends Controller
 
 	public function store(StoreQuoteRequest $request): RedirectResponse
 	{
-		$quote = new Quote();
-		$quote->movie_id = $request->movie_id;
+		$quote = Quote::create($request->validated());
 		$quote->thumbnail = Storage::putFile('thumbnails', $request->file('thumbnail'));
 		$quote->setTranslation('title', 'en', $request->title_en);
 		$quote->setTranslation('title', 'ka', $request->title_ka);
