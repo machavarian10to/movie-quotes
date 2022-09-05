@@ -1,18 +1,18 @@
 <x-layout>
     <div class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
-        <x-title name="Edit movie" />
+        <x-title name="{{__('texts.edit_movie')}}" />
 
         <div class="">
             <aside class="w-48">
-                <h4 class="font-semibold mb-4 text-underline">Links</h4>
+                <h4 class="font-semibold mb-4 text-underline">{{__('texts.links')}}</h4>
                 <ul>
-                    <x-link name="All quotes" link="{{ route('admin.quotes_show') }}"/>
+                    <x-link name="{{__('texts.all_quotes')}}" link="{{ route('admin.quotes_show') }}"/>
 
-                    <x-link name="All movies" link="{{ route('admin.movies_show') }}"/>
+                    <x-link name="{{__('texts.all_movies')}}" link="{{ route('admin.movies_show') }}"/>
 
-                    <x-link name="New quote" link="{{ route('admin.quotes_create') }}"/>
+                    <x-link name="{{__('texts.new_quote')}}" link="{{ route('admin.quotes_create') }}"/>
 
-                    <x-link name="New movie" link="{{ route('admin.movies_create') }}" class="mt-3"/>
+                    <x-link name="{{__('texts.new_movie')}}" link="{{ route('admin.movies_create') }}" class="mt-3"/>
                 </ul>
             </aside>
         </div>
@@ -24,10 +24,13 @@
                     @csrf
                     @method('PATCH')
 
-                    <x-input name="name" title="Movie name" value="{{ old('name', $movie->name) }}"/>
-                    <x-error type="name" />
+                    <x-input name="name_en" title="{{__('texts.movie_name_english')}}" value="{{ old('name', $movie->name) }}"/>
+                    <x-error type="name_en" />
 
-                    <x-input name="slug" title="Slug" value="{{ old('slug', $movie->slug) }}"/>
+                    <x-input name="name_ka" title="{{__('texts.movie_name_georgian')}}" value="{{ old('name', $movie->name) }}"/>
+                    <x-error type="name_ka" />
+
+                    <x-input name="slug" title="{{__('texts.slug')}}" value="{{ old('slug', $movie->slug) }}"/>
                     <x-error type="slug" />
 
                     <x-publish-button />
