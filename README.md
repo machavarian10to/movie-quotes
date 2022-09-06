@@ -18,7 +18,7 @@ The platform has its own admin panel where you can add movies and quotes.
 
 ### Prerequisites
 
-* PHP @7.2 and up
+* PHP @9
 * MYSQL @8 and up
 * npm @6 and up
 * composer @2 and up
@@ -29,7 +29,7 @@ The platform has its own admin panel where you can add movies and quotes.
 
 *  [Laravel@6.x](https://laravel.com/docs/6.x) - back-end framework
 *  [Spatie Translatable](https://github.com/spatie/laravel-translatable) - package for translation
-*  [Tailwind UI](https://tailwindui.com/) - CSS framework for rapidly building custom UI components.
+*  [Tailwind UI](https://tailwindcss.com/docs/installation) - CSS framework for rapidly building custom UI components.
 
 
 ### Getting Started
@@ -121,4 +121,5 @@ If you want to watch files during development, execute instead:
 
 ### Resources
 * Database diagram in [Drawsql](https://drawsql.app/teams/otar-matchavarianis-team/diagrams/movie-quotes)
-* [Design](https://www.figma.com/file/IIJOKK5esgM8uK8pM3D59J/Movie-Quotes?node-id=0%3A1)
+
+  ![Drawsql Diagram](public/storage/img/drawSQL-export-2022-09-06_11_05.png "Drawsql")
