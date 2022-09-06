@@ -18,7 +18,7 @@ The platform has its own admin panel where you can add movies and quotes.
 
 ### Prerequisites
 
-* PHP @9
+* PHP @8.1
 * MYSQL @8 and up
 * npm @6 and up
 * composer @2 and up
@@ -27,7 +27,7 @@ The platform has its own admin panel where you can add movies and quotes.
 
 ### Tech Stack
 
-*  [Laravel@6.x](https://laravel.com/docs/6.x) - back-end framework
+*  [Laravel](https://laravel.com/docs/9.x) - back-end framework
 *  [Spatie Translatable](https://github.com/spatie/laravel-translatable) - package for translation
 *  [Tailwind UI](https://tailwindcss.com/docs/installation) - CSS framework for rapidly building custom UI components.
 
