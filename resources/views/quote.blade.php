@@ -22,15 +22,18 @@
     <x-language-buttons />
 
     <div class="flex justify-center items-center">
-        <div class="text-white text-center font-sansation text-5xl flex flex-col items-center">
-            <div class="flex justify-center w-[700px] h-[386px] mt-12">
-                <img src="{{ asset('storage/' . $quote->thumbnail) }}" class="w-full h-full"/>
-            </div>
-
-            <h4 class="my-[65px]">{{ $quote->title }}</h4>
-            <a href="/movies/{{ $quote->movie->slug }}">
-                <h3 class="underline">{{ $quote->movie->name }}</h3>
-            </a>
+        <div class="text-white text-center text-5xl flex flex-col items-center">
+            @if($quote)
+                <div class="flex justify-center w-[700px] h-[386px] mt-12">
+                    <img src="{{ asset('storage/' . $quote->thumbnail) }}" class="w-full h-full"/>
+                </div>
+                <h4 class="my-[65px]">{{ $quote->title }}</h4>
+                <a href="/movies/{{ $quote->movie->slug }}">
+                    <h3 class="underline">{{ $quote->movie->name }}</h3>
+                </a>
+            @else
+                <h3 class="text-7xl mt-44 text-white">There are no quotes</h3>
+            @endif
         </div>
     </div>
 </x-layout>
