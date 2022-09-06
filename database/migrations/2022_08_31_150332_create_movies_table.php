@@ -14,7 +14,7 @@ return new class extends Migration {
 	{
 		Schema::create('movies', function (Blueprint $table) {
 			$table->id();
-			$table->json('name');
+			$table->json('name')->nullable();
 			$table->string('slug');
 			$table->timestamps();
 		});
